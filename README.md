@@ -264,15 +264,14 @@ But `CMakeCache.txt` should be deleted if you want to undefine this variable.
 
 #### Usage:
 
-This feature is integrated with `class System`. The path of mapfile can be set by adding `Map.mapfile: map.bin` to ORB_SLAM2's settings file. See the last few line of `Example/Monocular/TUM1.xml`.
+To save the map, call System::SaveMap(filename) after calling System::Shutdown(). The map is saved to the supplied filename.
+For an example, see `Example/Monocular/mono_tum.cc`
 
-To save a map, you need construct `ORB_SLAM2::System` with the last parameter be `true`. Then the `System` will save map to mapfile specified in setting file when `ShutDown`.
+To load a map, call System::System() with the last parameter set to the filename to load from. If the filename is unreadable or
+doesn't exist, it is silently ignored and System will proceed to create an empty map and map as normal.
+If a map is loaded, then `System` will run in localization mode by default.
 
-With a readable mapfile, map will be loaded automatically and `System` will run in localization mode, but you can change it to SLAM mode later.
-
-If you set a mapfile but it doesn't exist, `System` will create new map.
-
-mono_tum has been updated as a simple example of this functionality. An extra command line parameter(0 or 1) should be given to indicate whether you want to save map or not.
+mono_tum has been updated as a simple example of this functionality. An extra command line parameter (the save filename) should be given to indicate where the map should be saved to.
 
 #### Implementation related:
 
