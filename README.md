@@ -49,8 +49,12 @@ if you use ORB-SLAM2 (Stereo or RGB-D) in an academic work, please cite:
     @article{murORB2,
       title={{ORB-SLAM2}: an Open-Source {SLAM} System for Monocular, Stereo and {RGB-D} Cameras},
       author={Mur-Artal, Ra\'ul and Tard\'os, Juan D.},
-      journal={arXiv preprint arXiv:1610.06475},
-      year={2016}
+      journal={IEEE Transactions on Robotics},
+      volume={33},
+      number={5},
+      pages={1255--1262},
+      doi = {10.1109/TRO.2017.2705103},
+      year={2017}
      }
 
 # 2. Prerequisites
@@ -275,3 +279,4 @@ mono_tum has been updated as a simple example of this functionality. An extra co
 I use boost_serialization library to serialize `Map`, `MapPoint`, `KeyFrame`,`KeyFrameDatabase`, `cv::Mat`, `DBoW2::BowVector`, `DBoW2::FeatureVector`. In brief, only the `ORBVector` isn't serialized.
 
 This feature is tested with boost 1.64 and it works fine mostly. There is still some occasional segmentfault to dig in.
+
